@@ -40,6 +40,8 @@ flutter:
     - assets/video.png
     - assets/operativeCare/plastic.png
     - assets/operativeCare/surgery.png
+    - assets/laws/family.png
+    - assets/laws/pdf.png
 
   fonts:
     - family: Dangrek

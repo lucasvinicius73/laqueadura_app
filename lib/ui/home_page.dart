@@ -57,18 +57,21 @@ class HomePage extends StatelessWidget {
                 subtitle: "Cuidados especiais para gestantes",
                 icon: "assets/menu_3.png",
                 subIcon: "assets/menu_33.png",
+                route: "/laws",
               ),
               MenuButton(
                 title: "Lei do planejamento Familiar",
                 subtitle: "Etenda as leis familiares!",
                 icon: "assets/menu_4.png",
                 subIcon: "assets/menu_44.png",
+                route: "/laws",
               ),
               MenuButton(
                 title: "Perguntas frequentes",
                 subtitle: "Precisa de ajuda?",
                 icon: "assets/menu_5.png",
                 subIcon: "assets/menu_55.png",
+                route: "/question",
               ),
               SizedBox(
                 height: 20,
