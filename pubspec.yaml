@@ -1,0 +1,77 @@
+name: laqueadura_app
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/menu_1.png
+    - assets/menu_2.png
+    - assets/menu_3.png
+    - assets/menu_4.png
+    - assets/menu_5.png
+    - assets/menu_11.png
+    - assets/menu_22.png
+    - assets/menu_33.png
+    - assets/menu_44.png
+    - assets/menu_55.png
+    - assets/icon_app.png
+    - assets/video.png
+    - assets/operativeCare/plastic.png
+    - assets/operativeCare/surgery.png
+
+  fonts:
+    - family: Dangrek
+      fonts:
+        - asset: assets/fonts/Dangrek-Regular.ttf
+
+    - family: QuickSand
+      fonts:
+        - asset: assets/fonts/Quicksand-Regular.ttf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
