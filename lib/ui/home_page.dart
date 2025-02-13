@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                 subtitle: "Cuidados especiais para gestantes",
                 icon: "assets/menu_3.png",
                 subIcon: "assets/menu_33.png",
-                route: "/laws",
+                route: "/pregnant",
               ),
               MenuButton(
                 title: "Lei do planejamento Familiar",

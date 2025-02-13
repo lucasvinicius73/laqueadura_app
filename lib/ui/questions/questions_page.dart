@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/questions/widgets/questions_animated_container.dart';
 import 'package:laqueadura_app/ui/questions/widgets/questions_label_text.dart';
+import 'package:laqueadura_app/ui/widgets/send_button.dart';
 
 class QuestionsPage extends StatelessWidget {
   const QuestionsPage({super.key});
@@ -41,24 +42,9 @@ class QuestionsPage extends StatelessWidget {
               QuestionsLabelText(label: "Nome"),
               QuestionsLabelText(label: "Email"),
               QuestionsLabelText(label: "Pergunta"),
-              SizedBox(
-                width: double.infinity,
-                height: 47,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(Color(0xFFE6E6FA)),
-                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)))),
-                  child: Text(
-                    "Enviar",
-                    style: TextStyle(
-                        color: Color(0xFF69698F),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+              SendButton(
+                title: "Enviar",
+                onPress: () {},
               )
             ],
           ),
