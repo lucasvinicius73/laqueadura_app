@@ -15,8 +15,13 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    goToHome();
+  }
 
-    Future.delayed(const Duration(seconds: 1),
+  goToHome() {
+    Future.delayed(
+        const Duration(seconds: 1),
+        // ignore: use_build_context_synchronously
         () => Navigator.of(context).pushReplacementNamed('/home'));
   }
 
@@ -38,16 +43,20 @@ class _SplashPageState extends State<SplashPage> {
             child: Image.asset("assets/icon_app.png"),
           ),
           Text(
-            "MaterLife",
+            "Laques",
             style: TextStyle(
-                fontFamily: "Dangrek", fontSize: 64, color: Color(0xFFcd5e91)),
-          ),
-          SizedBox(
-            height: 120,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Aprila",
+              fontSize: 64,
+              color: Color(0xffD8AEA2),
+            ),
           ),
           Text(
-            "Cuidado e informação em cada etapa",
-            style: TextStyle(fontFamily: "QuickSand", fontSize: 20),
+            "Meu processo de laqueadura",
+            style: TextStyle(
+                fontFamily: "QuickSand",
+                fontSize: 20,
+                color: Color(0xffD8AEA2)),
           )
         ],
       ),

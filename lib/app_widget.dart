@@ -14,11 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Laqueadura App',
+      title: 'Laques',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "QuickSand",
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffCD5E91)),
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffD8AEA2)),
         useMaterial3: true,
       ),
       routes: {

@@ -7,33 +7,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             spacing: 20,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              Center(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     SizedBox(
-                      width: 70,
-                      height: 70,
+                      width: 66,
+                      height: 66,
                       child: Image.asset("assets/icon_app.png"),
                     ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      "MaterLife",
-                      style: TextStyle(
-                          color: Color(0xffCD5E91),
-                          fontSize: 44.09,
+                    SizedBox(width: 8),
+                    Transform.translate(
+                      offset: const Offset(0, 20),
+                      child: Text(
+                        "Laques",
+                        style: TextStyle(
+                          color: Color(0xffD8AEA2),
+                          fontSize: 55,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "Dangrek"),
-                    )
+                          fontFamily: "Aprila",
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

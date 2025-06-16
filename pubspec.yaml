@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -20,6 +21,10 @@ dev_dependencies:
 
 
   flutter_lints: ^5.0.0
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon_app_main.png"
 
 
 flutter:
@@ -37,11 +42,14 @@ flutter:
     - assets/menu_44.png
     - assets/menu_55.png
     - assets/icon_app.png
+    - assets/icon_app_main.png
     - assets/video.png
     - assets/operativeCare/plastic.png
     - assets/operativeCare/surgery.png
     - assets/laws/family.png
     - assets/laws/pdf.png
+
+
 
   fonts:
     - family: Dangrek
@@ -51,6 +59,18 @@ flutter:
     - family: QuickSand
       fonts:
         - asset: assets/fonts/Quicksand-Regular.ttf
+
+    - family: Aprila
+      fonts:
+        - asset: assets/fonts/aprila/Aprila-SemiBold.otf 
+        - asset: assets/fonts/aprila/Aprila-Regular.otf 
+        - asset: assets/fonts/aprila/Aprila-Medium.otf 
+        - asset: assets/fonts/aprila/Aprila-Light.otf 
+        - asset: assets/fonts/aprila/Aprila-ExtraBold.otf 
+        - asset: assets/fonts/aprila/Aprila-Bold.otf
+        - asset: assets/fonts/aprila/Aprila-Black.otf
+
+
 
 
 

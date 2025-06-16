@@ -21,13 +21,13 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 114,
+      height: 124,
       child: ElevatedButton(
           onPressed: () => Navigator.of(context).pushNamed(route),
           style: ButtonStyle(
             elevation: WidgetStatePropertyAll(0),
             backgroundColor: WidgetStatePropertyAll(
-                isFirst ? Color(0xFFE7E5FA) : Color(0xFFFED5DB)),
+                isFirst ? Color(0xffD8AEA2) : Color(0xFFF8F8F8)),
             padding: WidgetStatePropertyAll(
                 EdgeInsets.only(left: 23, right: 8, bottom: 12, top: 12)),
             shape: WidgetStatePropertyAll(RoundedRectangleBorder(
@@ -57,7 +57,7 @@ class MenuButton extends StatelessWidget {
                       title,
                       style: TextStyle(
                           color:
-                              isFirst ? Color(0xFF69698F) : Color(0xFFAA6871),
+                              isFirst ? Color(0xFF5B2F22) : Color(0xFF5B2F22),
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
                           height: 0.9),
@@ -70,7 +70,7 @@ class MenuButton extends StatelessWidget {
                       maxLines: 2,
                       style: TextStyle(
                           color:
-                              isFirst ? Color(0xFF69698F) : Color(0xFFAA6871),
+                              isFirst ? Color(0xFF705047) : Color(0xFF705047),
                           height: 1),
                     ),
                   ],
