@@ -43,7 +43,7 @@ class _PregnantPageState extends State<PregnantPage> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue[700],
+                  backgroundColor: const Color(0xffD8AEA2),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -167,170 +167,325 @@ class _PregnantPageState extends State<PregnantPage> {
     List<String>? bullets2,
     List<String>? important,
   }) {
-    return Card(
-      elevation: 2,
-      margin: EdgeInsets.only(bottom: 12),
-      child: ExpansionTile(
-        title: Text(
-          title,
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.bold,
-            fontFamily: "QuickSand",
+    return _PregnantExpandableCard(
+      title: title,
+      content: content,
+      bullets: bullets,
+      content2: content2,
+      bullets2: bullets2,
+      important: important,
+    );
+  }
+}
+
+class _PregnantExpandableCard extends StatefulWidget {
+  const _PregnantExpandableCard({
+    required this.title,
+    this.content,
+    this.bullets,
+    this.content2,
+    this.bullets2,
+    this.important,
+  });
+
+  final String title;
+  final List<String>? content;
+  final List<String>? bullets;
+  final List<String>? content2;
+  final List<String>? bullets2;
+  final List<String>? important;
+
+  @override
+  State<_PregnantExpandableCard> createState() =>
+      _PregnantExpandableCardState();
+}
+
+class _PregnantExpandableCardState extends State<_PregnantExpandableCard>
+    with SingleTickerProviderStateMixin {
+  bool _isExpanded = false;
+  late AnimationController _controller;
+  late Animation<double> _expandAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _expandAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _toggleExpanded() {
+    setState(() {
+      _isExpanded = !_isExpanded;
+      if (_isExpanded) {
+        _controller.forward();
+      } else {
+        _controller.reverse();
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
-        ),
+        ],
+      ),
+      child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Primeiro bloco de conteúdo
-                if (content != null)
-                  ...content.map((text) => text.isEmpty
-                      ? SizedBox(height: 8)
-                      : Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Text(
-                            text,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontFamily: "QuickSand",
-                              height: 1.5,
-                            ),
-                          ),
-                        )),
-                // Primeira lista de bullets
-                if (bullets != null)
-                  ...bullets.map((bullet) => Padding(
-                        padding: const EdgeInsets.only(left: 16.0, bottom: 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '• ',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "QuickSand",
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                bullet,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "QuickSand",
-                                  height: 1.5,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )),
-                // Segundo bloco de conteúdo
-                if (content2 != null)
-                  ...content2.map((text) => text.isEmpty
-                      ? SizedBox(height: 8)
-                      : Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Text(
-                            text,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontFamily: "QuickSand",
-                              height: 1.5,
-                            ),
-                          ),
-                        )),
-                // Segunda lista de bullets
-                if (bullets2 != null)
-                  ...bullets2.map((bullet) => Padding(
-                        padding: const EdgeInsets.only(left: 16.0, bottom: 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '• ',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "QuickSand",
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                bullet,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "QuickSand",
-                                  height: 1.5,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )),
-                // Seção de avisos importantes
-                if (important != null) ...[
-                  Container(
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.orange[50],
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.orange[300]!),
+          // Header (sempre visível)
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: _toggleExpanded,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    // Ícone
+                    Container(
+                      width: 44,
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffD8AEA2).withOpacity(0.15),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.article_outlined,
+                        color: Color(0xffD8AEA2),
+                        size: 22,
+                      ),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.warning_amber,
-                                color: Colors.orange[800]),
-                            SizedBox(width: 8),
-                            Text(
-                              'Importante:',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "QuickSand",
-                                color: Colors.orange[800],
-                              ),
-                            ),
-                          ],
+                    const SizedBox(width: 12),
+
+                    // Título
+                    Expanded(
+                      child: Text(
+                        widget.title,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey.shade800,
                         ),
-                        SizedBox(height: 8),
-                        ...important.map((text) => Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '• ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: "QuickSand",
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                      ),
+                    ),
+
+                    // Seta de expansão
+                    AnimatedRotation(
+                      turns: _isExpanded ? 0.5 : 0,
+                      duration: const Duration(milliseconds: 300),
+                      child: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // Conteúdo expandido
+          SizeTransition(
+            sizeFactor: _expandAnimation,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Divider(color: Colors.grey.shade200),
+                  const SizedBox(height: 12),
+
+                  // Primeiro bloco de conteúdo
+                  if (widget.content != null)
+                    ...widget.content!.map((text) => text.isEmpty
+                        ? const SizedBox(height: 8)
+                        : Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              text,
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey.shade700,
+                                height: 1.5,
+                              ),
+                              textAlign: TextAlign.justify,
+                            ),
+                          )),
+
+                  // Primeira lista de bullets
+                  if (widget.bullets != null) ...[
+                    if (widget.content != null && widget.content!.isNotEmpty)
+                      const SizedBox(height: 8),
+                    ...widget.bullets!.map((bullet) => Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 6),
+                                width: 8,
+                                height: 8,
+                                decoration: const BoxDecoration(
+                                  color: Color(0xffD8AEA2),
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  bullet,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.grey.shade700,
+                                    height: 1.5,
                                   ),
-                                  Expanded(
-                                    child: Text(
-                                      text,
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: "QuickSand",
-                                        height: 1.5,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ],
+
+                  // Segundo bloco de conteúdo
+                  if (widget.content2 != null)
+                    ...widget.content2!.map((text) => text.isEmpty
+                        ? const SizedBox(height: 8)
+                        : Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              text,
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey.shade700,
+                                height: 1.5,
+                              ),
+                              textAlign: TextAlign.justify,
+                            ),
+                          )),
+
+                  // Segunda lista de bullets
+                  if (widget.bullets2 != null) ...[
+                    if (widget.content2 != null && widget.content2!.isNotEmpty)
+                      const SizedBox(height: 8),
+                    ...widget.bullets2!.map((bullet) => Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 6),
+                                width: 8,
+                                height: 8,
+                                decoration: const BoxDecoration(
+                                  color: Color(0xffD8AEA2),
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  bullet,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.grey.shade700,
+                                    height: 1.5,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ],
+
+                  // Seção de avisos importantes
+                  if (widget.important != null) ...[
+                    const SizedBox(height: 12),
+                    Container(
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: Colors.amber.shade50,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: Colors.amber.shade300,
+                          width: 1,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.warning_amber,
+                                  color: Colors.amber.shade700, size: 22),
+                              const SizedBox(width: 8),
+                              Text(
+                                'Importante:',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.amber.shade800,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          ...widget.important!.map((text) => Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(top: 6),
+                                      width: 6,
+                                      height: 6,
+                                      decoration: BoxDecoration(
+                                        color: Colors.amber.shade700,
+                                        shape: BoxShape.circle,
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                      ],
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Text(
+                                        text,
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.grey.shade800,
+                                          height: 1.5,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ],

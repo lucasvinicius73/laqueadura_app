@@ -37,8 +37,8 @@ class LawsPage extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.indigo.shade600,
-                    Colors.indigo.shade400,
+                    const Color(0xffD8AEA2),
+                    const Color(0xffD8AEA2).withOpacity(0.7),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(16),
@@ -86,14 +86,14 @@ class LawsPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.blue.shade50,
+                color: const Color(0xffD8AEA2).withOpacity(0.15),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
                 children: [
                   Icon(
                     Icons.touch_app,
-                    color: Colors.blue.shade700,
+                    color: const Color(0xFF5B2F22),
                     size: 20,
                   ),
                   const SizedBox(width: 8),
@@ -102,7 +102,7 @@ class LawsPage extends StatelessWidget {
                       "Toque em cada tópico para ver mais detalhes",
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.blue.shade700,
+                        color: const Color(0xFF5B2F22),
                       ),
                     ),
                   ),
@@ -117,7 +117,8 @@ class LawsPage extends StatelessWidget {
               title: "O que é o Planejamento Familiar?",
               icon: Icons.family_restroom,
               color: Color(0xffD8AEA2),
-              content: '''O Planejamento Familiar é um direito garantido por lei. Toda mulher tem autonomia para decidir se quer ter filhos, quando e quantos, com acesso gratuito a métodos contraceptivos pelo SUS.''',
+              content:
+                  '''O Planejamento Familiar é um direito garantido por lei. Toda mulher tem autonomia para decidir se quer ter filhos, quando e quantos, com acesso gratuito a métodos contraceptivos pelo SUS.''',
               legalBases: [
                 "Lei nº 9.263/1996",
                 "Lei nº 14.443/2022",
@@ -198,7 +199,8 @@ class LawsPage extends StatelessWidget {
                 ),
                 SpecialCase(
                   title: "Risco à saúde",
-                  description: "Laqueadura pode ser feita mediante laudo assinado por dois médicos",
+                  description:
+                      "Laqueadura pode ser feita mediante laudo assinado por dois médicos",
                 ),
               ],
             ),
@@ -212,7 +214,8 @@ class LawsPage extends StatelessWidget {
               references: [
                 ReferenceItem(
                   title: "Lei nº 9.263/1996",
-                  description: "Regula o § 7º do art. 226 da Constituição Federal, que trata do planejamento familiar",
+                  description:
+                      "Regula o § 7º do art. 226 da Constituição Federal, que trata do planejamento familiar",
                   assetPath: "assets/laws/L9263.pdf",
                   onTap: () => _openPdf(
                     context,
@@ -222,7 +225,8 @@ class LawsPage extends StatelessWidget {
                 ),
                 ReferenceItem(
                   title: "Lei nº 14.443/2022",
-                  description: "Altera a Lei nº 9.263/1996 para determinar prazo para oferecimento de métodos e técnicas contraceptivas",
+                  description:
+                      "Altera a Lei nº 9.263/1996 para determinar prazo para oferecimento de métodos e técnicas contraceptivas",
                   assetPath: "assets/laws/L14443.pdf",
                   onTap: () => _openPdf(
                     context,
@@ -232,7 +236,8 @@ class LawsPage extends StatelessWidget {
                 ),
                 ReferenceItem(
                   title: "Nota Técnica nº 34/2023",
-                  description: "COSMU/CGACI/DGCI/SAPS/MS - Orientações sobre planejamento reprodutivo",
+                  description:
+                      "COSMU/CGACI/DGCI/SAPS/MS - Orientações sobre planejamento reprodutivo",
                   assetPath: "assets/laws/sei.pdf",
                   onTap: () => _openPdf(
                     context,

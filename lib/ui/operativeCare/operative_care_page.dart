@@ -22,13 +22,13 @@ class OperativeCarePage extends StatelessWidget {
               width: 100,
               height: 100,
               decoration: BoxDecoration(
-                color: const Color(0xFFCD5E91).withOpacity(0.1),
+                color: const Color(0xffD8AEA2).withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.medical_services,
                 size: 50,
-                color: Color(0xFFCD5E91),
+                color: Color(0xffD8AEA2),
               ),
             ),
             const SizedBox(height: 24),

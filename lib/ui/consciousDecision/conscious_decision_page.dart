@@ -71,16 +71,14 @@ class ConsciousDecisionPage extends StatelessWidget {
             const MethodCard(
               title: "Implante subdérmico",
               advantage: "Dura até 3 anos, eficácia superior a 99%.",
-              disadvantage:
-                  "Exige procedimento médico e pode alterar o ciclo.",
+              disadvantage: "Exige procedimento médico e pode alterar o ciclo.",
               icon: Icons.linear_scale,
               color: Color(0xFF9C27B0),
             ),
             const MethodCard(
               title: "DIU",
               subtitle: "(cobre ou hormonal)",
-              advantage:
-                  "Eficácia acima de 99%, pode durar de 5 a 10 anos.",
+              advantage: "Eficácia acima de 99%, pode durar de 5 a 10 anos.",
               disadvantage:
                   "Pode causar cólicas ou alterações menstruais nos primeiros meses.",
               icon: Icons.change_history,
@@ -98,7 +96,8 @@ class ConsciousDecisionPage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // Métodos Irreversíveis
-            _buildSectionTitle("Métodos Irreversíveis (Definitivos)", Icons.block),
+            _buildSectionTitle(
+                "Métodos Irreversíveis (Definitivos)", Icons.block),
             const SizedBox(height: 16),
 
             const MethodCard(
@@ -198,7 +197,8 @@ class ConsciousDecisionPage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xffD8AEA2),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -229,7 +229,8 @@ class ConsciousDecisionPage extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                   side: BorderSide(color: Colors.grey.shade400),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -275,16 +276,19 @@ class ConsciousDecisionPage extends StatelessWidget {
           size: 28,
         ),
         const SizedBox(width: 8),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Color(0xff333333),
+        Expanded(
+          child: Text(
+            title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Color(0xff333333),
+            ),
           ),
         ),
       ],
     );
   }
 }
-
