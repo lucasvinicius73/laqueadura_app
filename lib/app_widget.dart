@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:laqueadura_app/ui/checklist/checklist_page.dart';
+import 'package:laqueadura_app/ui/consciousDecision/conscious_decision_page.dart';
 import 'package:laqueadura_app/ui/home_page.dart';
 import 'package:laqueadura_app/ui/laws/laws_page.dart';
 import 'package:laqueadura_app/ui/operativeCare/operative_care_page.dart';
 import 'package:laqueadura_app/ui/pregnant/pregnant_page.dart';
 import 'package:laqueadura_app/ui/questions/questions_page.dart';
+import 'package:laqueadura_app/ui/reminders/reminders_page.dart';
 import 'package:laqueadura_app/ui/splash_page.dart';
-import 'package:laqueadura_app/ui/steps_page.dart';
+import 'package:laqueadura_app/ui/steps/steps_page.dart';
+import 'package:laqueadura_app/ui/partner/partner_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,6 +21,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Laques',
       debugShowCheckedModeBanner: false,
+      locale: const Locale('pt', 'BR'),
+      supportedLocales: const [
+        Locale('pt', 'BR'),
+        Locale('en', 'US'),
+      ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       theme: ThemeData(
         fontFamily: "QuickSand",
         scaffoldBackgroundColor: Colors.white,
@@ -30,6 +45,10 @@ class MyApp extends StatelessWidget {
         '/pregnant': (context) => const PregnantPage(),
         '/laws': (context) => const LawsPage(),
         '/question': (context) => const QuestionsPage(),
+        '/consciousDecision': (context) => const ConsciousDecisionPage(),
+        '/checklist': (context) => const CheckListPage(),
+        '/reminders': (context) => const RemindersPage(),
+        '/partner': (context) => const PartnerPage(),
       },
     );
   }

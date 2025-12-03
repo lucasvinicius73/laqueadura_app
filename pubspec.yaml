@@ -11,9 +11,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.8
   flutter_launcher_icons: ^0.14.3
+  youtube_player_flutter: ^9.0.3
+  intl: ^0.19.0
+  flutter_pdfview: ^1.3.2
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
@@ -36,11 +42,17 @@ flutter:
     - assets/menu_3.png
     - assets/menu_4.png
     - assets/menu_5.png
+    - assets/menu_6.png
+    - assets/menu_7.png
+    - assets/menu_8.png
     - assets/menu_11.png
     - assets/menu_22.png
     - assets/menu_33.png
     - assets/menu_44.png
     - assets/menu_55.png
+    # - assets/menu_66.png
+    # - assets/menu_77.png
+    # - assets/menu_88.png
     - assets/icon_app.png
     - assets/icon_app_main.png
     - assets/video.png
@@ -48,6 +60,9 @@ flutter:
     - assets/operativeCare/surgery.png
     - assets/laws/family.png
     - assets/laws/pdf.png
+    - assets/laws/L9263.pdf
+    - assets/laws/L14443.pdf
+    - assets/laws/sei.pdf
 
 
 

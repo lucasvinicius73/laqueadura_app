@@ -1,1 +1,1 @@
-String textOperativeCare = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words";
+String textOperativeCare = "Saiba como se preparar antes da cirurgia e quais cuidados ter durante a recuperação para garantir uma recuperação tranquila e segura.";
