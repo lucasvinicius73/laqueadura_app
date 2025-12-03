@@ -69,6 +69,7 @@ class MenuButton extends StatelessWidget {
                       subtitle,
                       maxLines: 2,
                       style: TextStyle(
+                          fontSize: 13,
                           color:
                               isFirst ? Color(0xFF705047) : Color(0xFF705047),
                           height: 1),
