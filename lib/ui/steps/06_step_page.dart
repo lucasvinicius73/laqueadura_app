@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
-class Step04Page extends StatelessWidget {
-  const Step04Page({super.key});
+class Step06Page extends StatelessWidget {
+  const Step06Page({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Processo no SUS'),
+        title: Text('Processo pela Rede Privada'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -18,11 +18,11 @@ class Step04Page extends StatelessWidget {
             // YouTube Player no topo
             YouTubePlayerWidget(
               videoUrl:
-                  'https://youtu.be/3zE2koDBHys', // Substitua pela URL real do vídeo
+                  'https://youtu.be/5Vn7ctDPtyE', // Substitua pela URL real do vídeo
             ),
             SizedBox(height: 24),
             Text(
-              'Como funciona o processo da laqueadura no SUS?',
+              'Como funciona o processo da laqueadura na Rede Privada?',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -31,36 +31,49 @@ class Step04Page extends StatelessWidget {
             ),
             SizedBox(height: 20),
             _buildBulletPoint(
-              'Pedido na UBS: a mulher manifesta seu desejo, o médico escuta e abre o processo.',
+              'A laqueadura pela rede privada é feita em hospitais ou clínicas particulares, por plano de saúde ou pagamento particular.',
             ),
+
             SizedBox(height: 12),
             _buildBulletPoint(
-              'Encaminhamento: conversa com assistente social e psicóloga, que apresentam alternativas e confirmam se a decisão é consciente.',
+              'Consulta médica: Tudo começa com uma consulta com o(a) ginecologista. O profissional avalia sua saúde, tira dúvidas e confirma se a laqueadura é a melhor opção para você.',
             ),
+
             SizedBox(height: 12),
             _buildBulletPoint(
-              'Reflexão em casa: a mulher pode conversar com familiares ou parceiro. A autorização do cônjuge não é obrigatória — a decisão é individual.',
+              'Regras legais: Mesmo sendo particular, a laqueadura segue a lei. É preciso:',
             ),
             SizedBox(height: 12),
-            _buildBulletPoint(
-              'Confirmação: a mulher retorna à UBS e reafirma sua decisão.',
+
+            Center(
+              child: Column(
+                children: [
+                  const Text(
+                    'Decisão consciente da mulher',
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    'Assinatura do termo de consentimento',
+                  ),
+                  
+                  const SizedBox(height: 4),
+                  const Text(
+                    'Cumprimento dos prazos exigidos por lei',
+                  ),
+                ],
+              ),
             ),
+
             SizedBox(height: 12),
             _buildBulletPoint(
-              'Consulta com ginecologista: explicação detalhada do procedimento e solicitação de exames (sangue, eletrocardiograma, avaliação pré-anestésica, ultrassonografia e ginecológicos). Em alguns municípios, também é exigido laudo de risco cirúrgico.',
+              'Exames e preparo: Antes da cirurgia, são solicitados exames e dadas orientações sobre jejum e uso de medicamentos.',
             ),
+
             SizedBox(height: 12),
             _buildBulletPoint(
-              'Entrega dos exames e assinaturas: a mulher e os profissionais assinam o termo de consentimento.',
+              'Custos: O valor varia conforme o hospital, o médico e se o plano de saúde cobre o procedimento.',
             ),
-            SizedBox(height: 12),
-            _buildBulletPoint(
-              'Agendamento: a cirurgia é marcada respeitando o prazo mínimo de 60 dias após o pedido.',
-            ),
-            SizedBox(height: 12),
-            _buildBulletPoint(
-              'Cirurgia pelo SUS: a laqueadura é realizada com apoio da equipe multiprofissional e de forma gratuita, como parte do direito ao planejamento familiar.',
-            ),
+
             SizedBox(height: 20),
           ],
         ),

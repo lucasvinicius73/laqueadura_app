@@ -5,6 +5,8 @@ import 'package:laqueadura_app/ui/steps/02_step_page.dart';
 import 'package:laqueadura_app/ui/steps/03_step_page.dart';
 import 'package:laqueadura_app/ui/steps/04_step_page.dart';
 import 'package:laqueadura_app/ui/steps/05_step_page.dart';
+import 'package:laqueadura_app/ui/steps/06_step_page.dart';
+
 
 class StepPage extends StatelessWidget {
   const StepPage({super.key});
@@ -72,7 +74,8 @@ class StepPage extends StatelessWidget {
             const SizedBox(height: 24),
             SizedBox(
               height: 180,
-              child: Image.asset("assets/video.png"),
+              //child: Image.asset("assets/video.png"),
+              
             ),
             const SizedBox(height: 24),
             Padding(
@@ -127,6 +130,21 @@ class StepPage extends StatelessWidget {
                       );
                     },
                   ),
+
+                  // 06_steps_page
+                  MenuTextButton(
+                    title: "Como funciona o processo da laqueadura na Rede Privada?",
+                    route: "",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Step06Page(),
+                        ),
+                      );
+                    },
+                  ),
+
                   MenuTextButton(
                     title: "CheckList",
                     route: "",

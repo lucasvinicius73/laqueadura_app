@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class ConfirmationDialog extends StatelessWidget {
   const ConfirmationDialog({super.key});
@@ -48,7 +49,14 @@ class ConfirmationDialog extends StatelessWidget {
                 height: 1.5,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 8),
+
+            const SizedBox(
+              child:
+               YouTubePlayerWidget(videoUrl: "https://youtu.be/L-tqM8aVtrM"),
+            ),
+
+            const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(

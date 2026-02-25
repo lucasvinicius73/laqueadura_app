@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/consciousDecision/widgets/method_card.dart';
 import 'package:laqueadura_app/ui/consciousDecision/widgets/confirmation_dialog.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class ConsciousDecisionPage extends StatelessWidget {
   const ConsciousDecisionPage({super.key});
@@ -38,6 +39,7 @@ class ConsciousDecisionPage extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
             ),
+            YouTubePlayerWidget(videoUrl: "https://youtu.be/DjQkqZLBpsw"),
             const SizedBox(height: 24),
 
             // Métodos Reversíveis
@@ -48,7 +50,8 @@ class ConsciousDecisionPage extends StatelessWidget {
               title: "Pílula anticoncepcional",
               advantage: "Fácil de usar e acessível.",
               disadvantage: "Se esquecer de tomar, pode falhar.",
-              icon: Icons.medication,
+              icon: 'assets/icons_conscious_decision/anticonc.png',
+
               color: Color(0xFF8BC34A),
             ),
             const MethodCard(
@@ -57,7 +60,7 @@ class ConsciousDecisionPage extends StatelessWidget {
               advantage: "Não precisa lembrar todos os dias.",
               disadvantage:
                   "Pode alterar o ciclo menstrual e exige aplicação regular.",
-              icon: Icons.vaccines,
+              icon: "assets/icons_conscious_decision/injeção.png",
               color: Color(0xFF03A9F4),
             ),
             const MethodCard(
@@ -65,14 +68,14 @@ class ConsciousDecisionPage extends StatelessWidget {
               advantage: "Discretos e eficazes.",
               disadvantage:
                   "Podem causar efeitos colaterais e exigem troca semanal ou mensal.",
-              icon: Icons.circle_outlined,
+              icon: "assets/icons_conscious_decision/adesivo.png",
               color: Color(0xFFE91E63),
             ),
             const MethodCard(
               title: "Implante subdérmico",
               advantage: "Dura até 3 anos, eficácia superior a 99%.",
               disadvantage: "Exige procedimento médico e pode alterar o ciclo.",
-              icon: Icons.linear_scale,
+              icon: "assets/icons_conscious_decision/implanon2.png",
               color: Color(0xFF9C27B0),
             ),
             const MethodCard(
@@ -81,7 +84,7 @@ class ConsciousDecisionPage extends StatelessWidget {
               advantage: "Eficácia acima de 99%, pode durar de 5 a 10 anos.",
               disadvantage:
                   "Pode causar cólicas ou alterações menstruais nos primeiros meses.",
-              icon: Icons.change_history,
+              icon: "assets/icons_conscious_decision/diu.png",
               color: Color(0xFFFF9800),
             ),
             const MethodCard(
@@ -89,7 +92,7 @@ class ConsciousDecisionPage extends StatelessWidget {
               advantage: "Único método que também protege contra ISTs.",
               disadvantage:
                   "Precisa ser usada corretamente em todas as relações.",
-              icon: Icons.shield,
+              icon: "assets/icons_conscious_decision/camisinha.png",
               color: Color(0xFF00BCD4),
             ),
 
@@ -105,7 +108,7 @@ class ConsciousDecisionPage extends StatelessWidget {
               subtitle: "(mulher)",
               advantage: "Eficácia acima de 99%, segurança permanente.",
               disadvantage: "Definitiva e irreversível.",
-              icon: Icons.female,
+              icon: "assets/icons_conscious_decision/femenine.png",
               color: Color(0xffD8AEA2),
               isDefinitive: true,
             ),
@@ -115,7 +118,7 @@ class ConsciousDecisionPage extends StatelessWidget {
               advantage:
                   "Cirurgia simples, rápida recuperação, eficácia acima de 99%.",
               disadvantage: "Também é definitiva e irreversível.",
-              icon: Icons.male,
+              icon: "assets/icons_conscious_decision/male-gender.png",
               color: Color(0xFF607D8B),
               isDefinitive: true,
             ),

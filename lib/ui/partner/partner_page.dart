@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class PartnerPage extends StatelessWidget {
   const PartnerPage({super.key});
@@ -86,7 +87,14 @@ class PartnerPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
+
+            const SizedBox(
+              child:
+                YouTubePlayerWidget(videoUrl: "https://youtu.be/biCQeT3gZF8"),
+            ),
+
+            const SizedBox(height: 12),
 
             // Seção Vasectomia
             _buildSectionTitle("Método definitivo masculino – Vasectomia", Icons.male),

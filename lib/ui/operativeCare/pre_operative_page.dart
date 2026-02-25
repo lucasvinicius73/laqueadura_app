@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class PreOperativePage extends StatelessWidget {
   const PreOperativePage({super.key});
@@ -56,7 +57,15 @@ class PreOperativePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+
+            const SizedBox(height: 12),
+
+            const SizedBox(child: 
+              YouTubePlayerWidget(videoUrl:
+                "https://youtu.be/vhcKrzNOQqE")
+            ),
+
+            const SizedBox(height: 12),
 
             // Lista de cuidados
             _buildCareItem(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class PostOperativePage extends StatelessWidget {
   const PostOperativePage({super.key});
@@ -56,7 +57,14 @@ class PostOperativePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
+
+            const SizedBox(
+              child:
+                YouTubePlayerWidget(videoUrl: "https://youtu.be/WvVO9Pz_knk"),
+            ),
+
+            const SizedBox(height: 12),
 
             // Tempo de recuperação por tipo
             const Text(

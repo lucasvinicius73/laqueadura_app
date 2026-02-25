@@ -16,7 +16,7 @@ class MethodCard extends StatefulWidget {
   final String? subtitle;
   final String advantage;
   final String disadvantage;
-  final IconData icon;
+  final String icon;
   final Color color;
   final bool isDefinitive;
 
@@ -69,11 +69,7 @@ class _MethodCardState extends State<MethodCard> {
                         color: widget.color.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Icon(
-                        widget.icon,
-                        color: widget.color,
-                        size: 28,
-                      ),
+                      child: Image.asset(widget.icon),
                     ),
                     const SizedBox(width: 12),
                     Expanded(

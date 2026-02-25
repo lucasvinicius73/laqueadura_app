@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/laws/pdf_viewer_page.dart';
 import 'package:laqueadura_app/ui/laws/widgets/expandable_law_card.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class LawsPage extends StatelessWidget {
   const LawsPage({super.key});
@@ -80,6 +81,14 @@ class LawsPage extends StatelessWidget {
                 ],
               ),
             ),
+
+            const SizedBox(height: 8),
+
+            const SizedBox(
+              child: 
+                YouTubePlayerWidget(videoUrl: "https://youtu.be/ZLxxgcjLzqQ"),
+            ),
+
             const SizedBox(height: 8),
 
             // Dica

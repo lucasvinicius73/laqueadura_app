@@ -20,7 +20,7 @@ class StepDetailPage extends StatelessWidget {
             // YouTube Player no topo
             YouTubePlayerWidget(
               videoUrl:
-                  'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Substitua pela URL real do vídeo
+                  'https://youtu.be/7E-GxuQgl6s', // Substitua pela URL real do vídeo
             ),
             SizedBox(height: 24),
             Text(

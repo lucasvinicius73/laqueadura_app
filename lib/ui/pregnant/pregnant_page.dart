@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/pregnant/pregnancy_calculator_page.dart';
+import 'package:laqueadura_app/ui/widgets/youtube_player_widget.dart';
 
 class PregnantPage extends StatefulWidget {
   const PregnantPage({super.key});
@@ -52,7 +53,14 @@ class _PregnantPageState extends State<PregnantPage> {
                 ),
               ),
             ),
-            SizedBox(height: 24),
+            SizedBox(height: 12),
+
+            SizedBox(
+              child:
+                YouTubePlayerWidget(videoUrl: "https://youtu.be/BaHoX6aImT8")
+            ),
+
+            SizedBox(height: 12),
             Text(
               'Informações para Gestantes',
               style: TextStyle(
