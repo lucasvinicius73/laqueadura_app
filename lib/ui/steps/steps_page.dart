@@ -4,7 +4,7 @@ import 'package:laqueadura_app/ui/steps/01_step_page.dart';
 import 'package:laqueadura_app/ui/steps/02_step_page.dart';
 import 'package:laqueadura_app/ui/steps/03_step_page.dart';
 import 'package:laqueadura_app/ui/steps/04_step_page.dart';
-import 'package:laqueadura_app/ui/steps/05_step_page.dart';
+//import 'package:laqueadura_app/ui/steps/05_step_page.dart';
 import 'package:laqueadura_app/ui/steps/06_step_page.dart';
 
 
@@ -140,19 +140,6 @@ class StepPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => Step06Page(),
-                        ),
-                      );
-                    },
-                  ),
-
-                  MenuTextButton(
-                    title: "CheckList",
-                    route: "",
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Step05Page(),
                         ),
                       );
                     },
