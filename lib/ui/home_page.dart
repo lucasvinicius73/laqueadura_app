@@ -108,6 +108,13 @@ class HomePage extends StatelessWidget {
                 subIcon: "assets/menu_11.png",
                 route: "/partner",
               ),
+              MenuButton(
+                title: "Saiba Mais",
+                subtitle: "Sobre o Aplicativo",
+                icon: "assets/menu_9.png",
+                subIcon: "assets/menu_99.png",
+                route: "/learnMore",
+              ),
               SizedBox(
                 height: 20,
               )

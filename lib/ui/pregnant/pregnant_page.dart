@@ -57,7 +57,7 @@ class _PregnantPageState extends State<PregnantPage> {
 
             SizedBox(
               child:
-                YouTubePlayerWidget(videoUrl: "https://youtu.be/BaHoX6aImT8")
+                YouTubePlayerWidget(videoUrl: "https://youtu.be/qjAWfSu6u2w")
             ),
 
             SizedBox(height: 12),
