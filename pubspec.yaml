@@ -45,6 +45,7 @@ flutter:
     - assets/menu_6.png
     - assets/menu_7.png
     - assets/menu_8.png
+    - assets/menu_9.png
     - assets/menu_11.png
     - assets/menu_22.png
     - assets/menu_33.png
@@ -53,6 +54,7 @@ flutter:
     - assets/menu_66.png
     - assets/menu_77.png
     - assets/menu_88.png
+    - assets/menu_99.png
     - assets/icon_app.png
     - assets/icon_app_main.png
     - assets/video.png

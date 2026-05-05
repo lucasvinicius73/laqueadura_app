@@ -4,6 +4,7 @@ import 'package:laqueadura_app/ui/checklist/checklist_page.dart';
 import 'package:laqueadura_app/ui/consciousDecision/conscious_decision_page.dart';
 import 'package:laqueadura_app/ui/home_page.dart';
 import 'package:laqueadura_app/ui/laws/laws_page.dart';
+import 'package:laqueadura_app/ui/learnMore/learnMore.dart';
 import 'package:laqueadura_app/ui/operativeCare/operative_care_page.dart';
 import 'package:laqueadura_app/ui/pregnant/pregnant_page.dart';
 import 'package:laqueadura_app/ui/questions/questions_page.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         '/checklist': (context) => const CheckListPage(),
         '/reminders': (context) => const RemindersPage(),
         '/partner': (context) => const PartnerPage(),
+        '/learnMore': (context) => const LearnMorePage(),
       },
     );
   }

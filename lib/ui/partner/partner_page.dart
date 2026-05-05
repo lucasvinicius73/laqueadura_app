@@ -91,7 +91,7 @@ class PartnerPage extends StatelessWidget {
 
             const SizedBox(
               child:
-                YouTubePlayerWidget(videoUrl: "https://youtu.be/biCQeT3gZF8"),
+                YouTubePlayerWidget(videoUrl: "https://youtu.be/E6BDnDnliyg?si=mertRz0dDpjUDM5k"),
             ),
 
             const SizedBox(height: 12),
