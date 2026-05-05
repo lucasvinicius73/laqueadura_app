@@ -115,9 +115,34 @@ class HomePage extends StatelessWidget {
                 subIcon: "assets/menu_99.png",
                 route: "/learnMore",
               ),
-              SizedBox(
-                height: 20,
-              )
+              const SizedBox(
+                height: 22,
+              ),
+              Container(
+                padding: const EdgeInsets.all(5),
+                constraints: const BoxConstraints(maxWidth: 200),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 65,
+                      width: 55,
+                      child: Image.asset("assets/about/brasaouepa.png"),
+                    ),
+                    const Spacer(),
+                    SizedBox(
+                      height: 60,
+                      width: 55,
+                      child: Image.asset("assets/about/logoCipe.png"),
+                    ),
+                    const Spacer(),
+                    SizedBox(
+                      height: 60,
+                      width: 55,
+                      child: Image.asset("assets/about/logoCapes.png"),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

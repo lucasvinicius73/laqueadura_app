@@ -27,11 +27,13 @@ class LearnMorePage extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 8.0),
                     child: Row(
                       children: [
                         IconButton(
-                          icon: const Icon(Icons.arrow_back, color: Colors.black87),
+                          icon: const Icon(Icons.arrow_back,
+                              color: Colors.black87),
                           onPressed: () => Navigator.of(context).pop(),
                         ),
                         const SizedBox(width: 8),
@@ -121,9 +123,16 @@ class LearnMorePage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          _buildLogoPlaceholder("UEPA", Colors.blue.shade900),
-                          _buildLogoPlaceholder("CIPE", Colors.purple.shade900),
-                          _buildLogoPlaceholder("CAPES", Colors.blue),
+                          SizedBox(
+                              width: 50,
+                              child:
+                                  Image.asset("assets/about/brasaouepa.png")),
+                          SizedBox(
+                              width: 50,
+                              child: Image.asset("assets/about/logoCapes.png")),
+                          SizedBox(
+                              width: 50,
+                              child: Image.asset("assets/about/logoCipe.png")),
                         ],
                       ),
                     ],
