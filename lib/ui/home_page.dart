@@ -126,13 +126,13 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       height: 65,
                       width: 55,
-                      child: Image.asset("assets/about/brasaouepa.png"),
+                      child: Image.asset("assets/about/logoCipe.png"),
                     ),
                     const Spacer(),
                     SizedBox(
                       height: 60,
                       width: 55,
-                      child: Image.asset("assets/about/logoCipe.png"),
+                      child: Image.asset("assets/about/brasaouepa.png"),
                     ),
                     const Spacer(),
                     SizedBox(

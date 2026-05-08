@@ -93,11 +93,11 @@ class LearnMorePage extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               children: [
                 _buildInfoCard(
-                  "Sobre o aplicativo: O aplicativo LAQUES foi desenvolvido como produto técnico-científico do curso de mestrado, com a finalidade de oferecer orientações qualificadas no período pré e pós-operatório da laqueadura tubária.\n\nA ferramenta tem como objetivo apoiar mulheres no acesso a informações seguras, claras e baseadas em evidências, contribuindo para a tomada de decisão informada, o preparo adequado para o procedimento e o acompanhamento no pós-operatório.\n\nO desenvolvimento do aplicativo está vinculado à produção acadêmica, integrando ensino, pesquisa e prática em saúde, com foco na promoção do cuidado e na educação em saúde.",
+                  "Sobre o aplicativo: O aplicativo LAQUES foi desenvolvido em um curso de mestrado profissional em evidências científica do curso de mestrado, com a finalidade de oferecer orientações qualificadas no período pré e pós-operatório da laqueadura tubária.\n\nA ferramenta tem como objetivo apoiar mulheres no acesso a informações seguras, claras e baseadas em evidências, contribuindo para a tomada de decisão informada, o preparo adequado para o procedimento e o acompanhamento no pós-operatório.\n\nO desenvolvimento do aplicativo está vinculado à produção acadêmica, integrando ensino, pesquisa e prática em saúde, com foco na promoção do cuidado e na educação em saúde.",
                 ),
                 const SizedBox(height: 16),
                 _buildInfoCard(
-                  "Desenvolvedores do app:\nLauany Silva de Medeiros,\nAmanda da Costa Silveira Sabba,\nMariana de Sousa Ribeiro de Carvalho.",
+                  "Desenvolvedores do app: Lauany Silva de Medeiros, Amanda da Costa Silveira Sabba, Mariana de Sousa Ribeiro de Carvalho.",
                 ),
                 const SizedBox(height: 16),
                 Container(
@@ -126,13 +126,13 @@ class LearnMorePage extends StatelessWidget {
                           SizedBox(
                               width: 50,
                               child:
-                                  Image.asset("assets/about/brasaouepa.png")),
+                                  Image.asset("assets/about/logoCipe.png")),
+                          SizedBox(
+                              width: 50,
+                              child: Image.asset("assets/about/brasaouepa.png")),
                           SizedBox(
                               width: 50,
                               child: Image.asset("assets/about/logoCapes.png")),
-                          SizedBox(
-                              width: 50,
-                              child: Image.asset("assets/about/logoCipe.png")),
                         ],
                       ),
                     ],
@@ -147,21 +147,39 @@ class LearnMorePage extends StatelessWidget {
   }
 
   Widget _buildInfoCard(String text) {
+    final paragraphs = text.split('\n\n');
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: const Color(0xFFF9E8EB),
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 18,
-          color: Color(0xFF3B1015),
-          fontFamily: 'QuickSand',
-          fontWeight: FontWeight.w500,
-          height: 1.3,
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: paragraphs.map((paragraph) {
+          return Padding(
+            padding: EdgeInsets.only(
+                bottom: paragraph == paragraphs.last ? 0.0 : 8.0),
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  const WidgetSpan(
+                    child: SizedBox(width: 24.0), // Indentação da primeira linha
+                  ),
+                  TextSpan(text: paragraph),
+                ],
+              ),
+              textAlign: TextAlign.justify,
+              style: const TextStyle(
+                fontSize: 18,
+                color: Color(0xFF3B1015),
+                fontFamily: 'QuickSand',
+                fontWeight: FontWeight.w500,
+                height: 1.3,
+              ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
