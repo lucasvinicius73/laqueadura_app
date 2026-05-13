@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:youtube_player_flutter/youtube_player_flutter.dart' as yt_flutter;
-import 'youtube_web_player.dart';
+import 'youtube_web_player_stub.dart'
+    if (dart.library.js_interop) 'youtube_web_player.dart';
 
 class YouTubePlayerWidget extends StatefulWidget {
   final String videoUrl;
