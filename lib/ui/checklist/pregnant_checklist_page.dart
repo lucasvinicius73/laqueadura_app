@@ -17,6 +17,19 @@ class _PregnantChecklistPageState extends State<PregnantChecklistPage> {
   bool _showDumPicker = true;
 
   @override
+  void initState() {
+    super.initState();
+    _viewModel.addListener(() {
+      setState(() {
+        // Se a DUM já foi carregada do SharedPreferences, podemos pular a tela de seleção
+        if (_viewModel.dum != null) {
+          _showDumPicker = false;
+        }
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

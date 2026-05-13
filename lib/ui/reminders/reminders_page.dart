@@ -17,8 +17,10 @@ class _RemindersPageState extends State<RemindersPage> {
   @override
   void initState() {
     super.initState();
-    // Adiciona alguns lembretes de exemplo
-    _viewModel.addSampleReminders();
+    _viewModel.loadData();
+    _viewModel.addListener(() {
+      setState(() {});
+    });
   }
 
   @override

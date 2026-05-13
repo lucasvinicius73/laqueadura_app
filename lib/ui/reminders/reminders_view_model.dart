@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 
 enum ReminderType {
   consultation,
@@ -96,6 +99,40 @@ class Reminder {
     this.notes,
   });
 
+  factory Reminder.fromJson(Map<String, dynamic> json) {
+    TimeOfDay? parsedTime;
+    if (json['time'] != null) {
+      final parts = (json['time'] as String).split(':');
+      if (parts.length == 2) {
+        parsedTime = TimeOfDay(hour: int.parse(parts[0]), minute: int.parse(parts[1]));
+      }
+    }
+
+    return Reminder(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      date: DateTime.parse(json['date'] as String),
+      time: parsedTime,
+      type: ReminderType.values.firstWhere((e) => e.name == json['type'], orElse: () => ReminderType.other),
+      repetition: ReminderRepetition.values.firstWhere((e) => e.name == json['repetition'], orElse: () => ReminderRepetition.once),
+      notificationEnabled: json['notificationEnabled'] as bool? ?? true,
+      notes: json['notes'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'date': date.toIso8601String(),
+      'time': time != null ? '${time!.hour}:${time!.minute}' : null,
+      'type': type.name,
+      'repetition': repetition.name,
+      'notificationEnabled': notificationEnabled,
+      'notes': notes,
+    };
+  }
+
   /// Verifica se o lembrete é hoje
   bool get isToday {
     final now = DateTime.now();
@@ -167,6 +204,25 @@ class RemindersViewModel extends ChangeNotifier {
     return _reminders;
   }
 
+  Future<void> loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final remindersStr = prefs.getStringList('reminders_list');
+    
+    if (remindersStr != null) {
+      _reminders = remindersStr.map((e) => Reminder.fromJson(jsonDecode(e))).toList();
+    } else {
+      // Primeira vez abrindo o app, adiciona exemplos
+      addSampleReminders();
+    }
+    notifyListeners();
+  }
+
+  Future<void> saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final remindersStr = _reminders.map((e) => jsonEncode(e.toJson())).toList();
+    await prefs.setStringList('reminders_list', remindersStr);
+  }
+
   int get upcomingRemindersCount {
     final now = DateTime.now();
     return _reminders.where((r) {
@@ -216,6 +272,7 @@ class RemindersViewModel extends ChangeNotifier {
         notes: 'Jejum de 12 horas',
       ),
     ];
+    saveData();
     notifyListeners();
   }
 
@@ -239,6 +296,7 @@ class RemindersViewModel extends ChangeNotifier {
 
   void addReminder(Reminder reminder) {
     _reminders.add(reminder);
+    saveData();
     notifyListeners();
   }
 
@@ -246,12 +304,14 @@ class RemindersViewModel extends ChangeNotifier {
     final index = _reminders.indexWhere((r) => r.id == reminder.id);
     if (index != -1) {
       _reminders[index] = reminder;
+      saveData();
       notifyListeners();
     }
   }
 
   void removeReminder(String id) {
     _reminders.removeWhere((r) => r.id == id);
+    saveData();
     notifyListeners();
   }
 
@@ -260,6 +320,7 @@ class RemindersViewModel extends ChangeNotifier {
     if (index != -1) {
       _reminders[index].notificationEnabled =
           !_reminders[index].notificationEnabled;
+      saveData();
       notifyListeners();
     }
   }

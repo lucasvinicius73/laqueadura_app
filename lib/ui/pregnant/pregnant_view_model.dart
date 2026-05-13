@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PregnantViewModel extends ChangeNotifier {
   List<String> criteriaList = [
@@ -13,13 +14,43 @@ class PregnantViewModel extends ChangeNotifier {
 
   DateTime? selectedDate; // DUM - Data da Última Menstruação
 
+  PregnantViewModel() {
+    loadData();
+  }
+
+  Future<void> loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    
+    criteria = prefs.getString('pregnant_criteria') ?? "Selecionar Critério";
+    
+    final dateStr = prefs.getString('pregnant_date');
+    if (dateStr != null) {
+      selectedDate = DateTime.parse(dateStr);
+    }
+    notifyListeners();
+  }
+
+  Future<void> saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+    
+    await prefs.setString('pregnant_criteria', criteria);
+    
+    if (selectedDate != null) {
+      await prefs.setString('pregnant_date', selectedDate!.toIso8601String());
+    } else {
+      await prefs.remove('pregnant_date');
+    }
+  }
+
   void changeDropDown(String? value) {
     criteria = value!;
+    saveData();
     notifyListeners();
   }
 
   void changeDate(DateTime? date) {
     selectedDate = date;
+    saveData();
     notifyListeners();
   }
 

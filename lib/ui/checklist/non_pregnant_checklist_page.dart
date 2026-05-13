@@ -16,6 +16,14 @@ class _NonPregnantChecklistPageState extends State<NonPregnantChecklistPage> {
   final ChecklistViewModel _viewModel = ChecklistViewModel();
 
   @override
+  void initState() {
+    super.initState();
+    _viewModel.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
