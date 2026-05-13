@@ -1,8 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/widgets/menu_button.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String _version = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVersion();
+  }
+
+  Future<void> _loadVersion() async {
+    final info = await PackageInfo.fromPlatform();
+    if (mounted) {
+      setState(() {
+        _version = 'v${info.version}+${info.buildNumber}';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,6 +166,18 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              if (_version.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    _version,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: Colors.grey.shade400,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
