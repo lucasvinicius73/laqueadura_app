@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laqueadura_app/ui/widgets/menu_button.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+import 'package:laqueadura_app/utils/app_version.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,10 +19,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _loadVersion() async {
-    final info = await PackageInfo.fromPlatform();
+    final version = await getAppVersion();
     if (mounted) {
       setState(() {
-        _version = 'v${info.version}+${info.buildNumber}';
+        _version = version;
       });
     }
   }
