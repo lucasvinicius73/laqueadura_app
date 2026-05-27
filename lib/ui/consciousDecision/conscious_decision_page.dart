@@ -73,7 +73,7 @@ class ConsciousDecisionPage extends StatelessWidget {
             ),
             const MethodCard(
               title: "Implante subdérmico",
-              advantage: "Dura até 3 anos, eficácia superior a 99%.",
+              advantage: "Dura de 3 a 5 anos, eficácia superior a 99%.",
               disadvantage: "Exige procedimento médico e pode alterar o ciclo.",
               icon: "assets/icons_conscious_decision/implanon2.png",
               color: Color(0xFF9C27B0),

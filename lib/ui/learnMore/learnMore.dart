@@ -93,11 +93,11 @@ class LearnMorePage extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               children: [
                 _buildInfoCard(
-                  "Sobre o aplicativo: O aplicativo LAQUES foi desenvolvido em um curso de mestrado profissional em evidências científica do curso de mestrado, com a finalidade de oferecer orientações qualificadas no período pré e pós-operatório da laqueadura tubária.\n\nA ferramenta tem como objetivo apoiar mulheres no acesso a informações seguras, claras e baseadas em evidências, contribuindo para a tomada de decisão informada, o preparo adequado para o procedimento e o acompanhamento no pós-operatório.\n\nO desenvolvimento do aplicativo está vinculado à produção acadêmica, integrando ensino, pesquisa e prática em saúde, com foco na promoção do cuidado e na educação em saúde.",
+                  "O aplicativo LAQUES foi desenvolvido em um curso de Mestrado Profissional no Brasil, com o objetivo de oferecer orientações qualificadas, baseadas em evidências científicas, envolvendo o período pré e pós-operatório da laqueadura tubária.\n\nA ferramenta digital tem a finalidade de apoiar mulheres no acesso às informações seguras, de forma objetiva e de diferentes formatos (escrita, audiovisual e libras), contribuindo para a tomada de decisão informada, o preparo adequado para o procedimento e o acompanhamento pós-operatório.",
                 ),
                 const SizedBox(height: 16),
                 _buildInfoCard(
-                  "Desenvolvedores do app: Lauany Silva de Medeiros, Amanda da Costa Silveira Sabba, Mariana de Sousa Ribeiro de Carvalho.",
+                  "Desenvolvedores do aplicativo: Lauany Silva de Medeiros, Amanda da Costa Silveira Sabbá, Mariana de Sousa Ribeiro de Carvalho.",
                 ),
                 const SizedBox(height: 16),
                 Container(
@@ -109,16 +109,6 @@ class LearnMorePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Logos institucionais e de fomento:",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xFF3B1015),
-                          fontFamily: 'QuickSand',
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
                       // Placeholders for the logos as they are not found in the assets folder
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
